@@ -3,19 +3,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 </head>
     <body>
-        <nav class="teal accent-4">
-           <div class="nav-wrapper container">
-             <a href="#" class="brand-logo">
-                 {% if user_name %}
-                    Hello, {{ user_name }}
-                 {% endif %}
-             </a>
-             <ul id="nav-mobile" class="right hide-on-med-and-down">
-               <li><a href={{ url_for('index') }}>Home</a></li>
-             </ul>
-           </div>
-         </nav>
-         <div class="container">
+        {% include nav.html %}
+        <div class="container">
             <h5 class="">Make a new list:</h5>
             <div class="row">
                 <form class="col s12" action="/list">
