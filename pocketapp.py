@@ -28,7 +28,8 @@ def get_access_token(consumer_key, request_token):
                                           'code': request_token}
                                     )
     response = re.split(r'[=&]', access_response.text)
-    user_info = {'access_token': response[1], 'user_name': response[3]}
+    print(response)
+    user_info = {'access_token': response[1], 'user_name': response[-1]}
     return user_info
 
 
