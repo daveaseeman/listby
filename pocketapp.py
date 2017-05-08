@@ -33,13 +33,14 @@ def get_access_token(consumer_key, request_token):
     return user_info
 
 
-def get_list(consumer_key, access_token, count, tag):
+def get_list(consumer_key, access_token, count, tag, state):
     get_url = 'https://getpocket.com/v3/get'
     response = requests.post(get_url,
                              data={'consumer_key': consumer_key,
                                    'access_token': access_token,
                                    'count': count,
-                                   'tag': tag}
+                                   'tag': tag,
+                                   'state': state}
                              )
     response_data = json.loads(response.text)
     list = response_data['list']

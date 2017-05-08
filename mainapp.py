@@ -40,7 +40,8 @@ def list():
     user_name = session['user_name']
     tag = request.values.get('tag')
     count = request.values.get('count')
-    list = get_list(consumer_key, access_token, count, tag)
+    state = request.values.get('state')
+    list = get_list(consumer_key, access_token, count, tag, state)
     return render_template('list.html', tag=tag, list=list, user_name=user_name)
 
 

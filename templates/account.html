@@ -22,13 +22,29 @@
                     <div class="row">
                         <div class="input-field col s12 m6 l4">
                             <input type="text" id="tag" class="validate" name="tag">
-                            <label for="tag">Pocket <i class="fa fa-tag" aria-hidden="true"></i></label>
+                            <label for="tag">Pocket Tag <i class="fa fa-tag" aria-hidden="true"></i></label>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="input-field col s12 m6 l4">
                             <input type="text" id="count" class="validate" name="count">
                             <label for="count">Max Count <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i></label>
                         </div>
-                    </div><br />
+                    </div>
+                    <div class="row">
+                        <p>
+                            <input name="state" type="radio" id="unread" value="unread" />
+                            <label for="unread">Unread</label>
+                        </p>
+                        <p>
+                            <input name="state" type="radio" id="archive" value="archive" />
+                            <label for="archive">Archive</label>
+                        </p>
+                        <p>
+                            <input name="state" type="radio" id="all" value="all" />
+                            <label for="all">Both</label>
+                        </p>
+                    </div>
                     <div class="row">
                         <div class="input-field col s12 m6 l4">
                             <input type="submit" value="Get List" id="submit_tag" class="btn red lighten-1"/>
