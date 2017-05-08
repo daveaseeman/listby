@@ -5,6 +5,11 @@
     <body>
         {% include 'nav.html' %}
         <div class="container" style="font-family: 'Assistant', sans-serif;">
+            <h3>
+                {% if user_name %}
+                Hello, {{ user_name }}
+                {% endif %}
+            </h3>
             <h5 class="">Make a new list:</h5>
             <div class="row">
                 <form class="col s12" action="/list">

@@ -1,18 +1,14 @@
 <!-- Dropdown Structure -->
 <ul id="nav-menu" class="dropdown-content">
     <li><a href={{ url_for('index') }}>HOME</a></li>
-    <li><a href={{ url_for('list') }}>LIST</a></li>
+    <li><a href={{ url_for('account') }}>ACCOUNT</a></li>
   <!-- <li class="divider"></li> -->
   <!-- <li><a href="#!">three</a></li> -->
 </ul>
 <nav class="teal accent-4">
     <div class="nav-wrapper container" style="font-family: 'Assistant', sans-serif;">
         <a href="#" class="brand-logo">
-            {% if user_name %}
-            Hello, {{ user_name }}
-            {% else %}
             <span style="font-family: 'Righteous', cursive;">listby</span>
-            {% endif %}
         </a>
     <ul class="right hide-on-med-and-down">
       <!-- Dropdown Trigger -->

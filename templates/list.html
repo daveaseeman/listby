@@ -7,7 +7,7 @@
     <div class="container" style="font-family: 'Assistant', sans-serif;">
         {% if tag %}
         <div class="row">
-            <h1 class=""><i class="fa fa-tag" aria-hidden="true"></i> {{ tag }} list by {{ user_name }}</h1>
+            <h3 class=""><i class="fa fa-tag" aria-hidden="true"></i> {{ tag }} list by {{ user_name }}</h3>
             {% for item in list %}
             <div class="col s12 m6 l4">
                 {% if list[item].resolved_title %}
