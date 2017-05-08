@@ -7,12 +7,13 @@ from flask import Flask, render_template, session, request
 # import sys
 # reload(sys)
 # sys.setdefaultencoding('utf8')
+# app_base_url = 'http://0.0.0.0:5000'
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 consumer_key = os.environ['POCKET_SECRET']
-app_base_url = 'http://0.0.0.0:5000'
+app_base_url = 'https://listby.herokuapp.com/'
 redirect = '/account'
 redirect_uri = app_base_url + redirect
 
