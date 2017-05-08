@@ -2,10 +2,11 @@ import os
 from pocketapp import get_request_token, get_auth_url, get_access_token
 from pocketapp import get_list
 from flask import Flask, render_template, session, request
-import sys
 
-reload(sys)
-sys.setdefaultencoding('utf8')
+# These are only needed locally:
+# import sys
+# reload(sys)
+# sys.setdefaultencoding('utf8')
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
