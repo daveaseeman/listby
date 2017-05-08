@@ -1,0 +1,57 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+</head>
+<body>
+    <nav class="teal accent-4">
+       <div class="nav-wrapper container">
+         <a href="#" class="brand-logo">
+         </a>
+         <ul id="nav-mobile" class="right hide-on-med-and-down">
+           <li><a href={{ url_for('index') }}>Home</a></li>
+           <li><a href={{ url_for('account') }}>New List</a></li>
+         </ul>
+       </div>
+     </nav>
+    <div class="container">
+        {% if tag %}
+        <div class="row">
+            <h1 class=""><i class="fa fa-tag" aria-hidden="true"></i> {{ tag }} list by {{ user_name }}</h1>
+            {% for item in list %}
+            <div class="col s12 m6 l4">
+                {% if list[item].resolved_title %}
+                <h5>{{ list[item].resolved_title }}</h5>
+                {% else %}
+                <h5 style="word-wrap:break-word;overflow:hidden;">{{ list[item].given_title }}</h5>
+                {% endif %}
+                <div class="divider teal accent-4"></div>
+                <p>
+                    {% if list[item.excerpt] %}
+                    No excerpt available.
+                    {% else %}
+                    {{ list[item].excerpt }}
+                    {% endif %}<br />
+                    <a href="{{ list[item].resolved_url}}"><i class="fa fa-external-link-square" aria-hidden="true"></i> read more</a>
+                </p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <h1 class="center-align">Problem getting list from tag</h1>
+            {% endif %}
+        </div>
+    </div>
+    <!-- javascript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://use.fontawesome.com/8f6878caa0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script>
+    var maxheight = 0;
+
+    $('.card-panel').each(function () {
+        maxheight = ($(this).height() > maxheight ? $(this).height() : maxheight);
+    });
+
+    $('.card-panel').height(maxheight);
+    </script>
+</body>
+</html>

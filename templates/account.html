@@ -1,0 +1,41 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+</head>
+    <body>
+        <nav>
+           <div class="nav-wrapper teal accent-4">
+             <a href="#" class="brand-logo">
+                 {% if user_name %}
+                    Hello, {{ user_name }}
+                 {% endif %}
+             </a>
+             <ul id="nav-mobile" class="right hide-on-med-and-down">
+               <li><a href={{ url_for('index') }}>Home</a></li>
+             </ul>
+           </div>
+         </nav>
+         <div class="container">
+            <h5 class="">Make a new list:</h5>
+            <div class="row">
+                <form class="col s12" action="/list">
+                    <div class="row">
+                        <div class="input-field col s12 m6 l4">
+                            <input type="text" id="pocket_tag" class="validate" name="tag">
+                            <label for="pocket_tag">Enter Pocket <i class="fa fa-tag" aria-hidden="true"></i></label>
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="input-field col s12 m6 l4">
+                            <input type="submit" value="Get List" id="submit_tag" class="btn red lighten-1"/>
+                        </div>
+                    </div><br />
+                </form>
+            </div>
+        </div>
+        <!-- javascript -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://use.fontawesome.com/8f6878caa0.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    </body>
+</html>
