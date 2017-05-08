@@ -3,8 +3,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 </head>
     <body>
-        <nav>
-           <div class="nav-wrapper teal accent-4">
+        <nav class="teal accent-4">
+           <div class="nav-wrapper container">
              <a href="#" class="brand-logo">
                  {% if user_name %}
                     Hello, {{ user_name }}
@@ -21,8 +21,12 @@
                 <form class="col s12" action="/list">
                     <div class="row">
                         <div class="input-field col s12 m6 l4">
-                            <input type="text" id="pocket_tag" class="validate" name="tag">
-                            <label for="pocket_tag">Enter Pocket <i class="fa fa-tag" aria-hidden="true"></i></label>
+                            <input type="text" id="tag" class="validate" name="tag">
+                            <label for="tag">Pocket <i class="fa fa-tag" aria-hidden="true"></i></label>
+                        </div>
+                        <div class="input-field col s12 m6 l4">
+                            <input type="text" id="count" class="validate" name="count">
+                            <label for="count">Max Count <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i></label>
                         </div>
                     </div><br />
                     <div class="row">

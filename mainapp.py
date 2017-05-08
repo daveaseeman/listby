@@ -38,14 +38,9 @@ def account():
 def list():
     access_token = session['access_token']
     user_name = session['user_name']
-    count = "5"
     tag = request.values.get('tag')
+    count = request.values.get('count')
     list = get_list(consumer_key, access_token, count, tag)
-    new_list = []
-    for item in list:
-        title = list[item]['resolved_title'].encode('utf-8')
-        print(title)
-        new_list += title
     return render_template('list.html', tag=tag, list=list, user_name=user_name)
 
 
