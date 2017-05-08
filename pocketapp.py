@@ -2,10 +2,6 @@ import requests
 import re
 import json
 
-# These are only needed locally:
-# from dotenv import load_dotenv, find_dotenv
-# load_dotenv(find_dotenv())
-
 
 def get_request_token(consumer_key, redirect_uri):
     request_url = 'https://getpocket.com/v3/oauth/request'
