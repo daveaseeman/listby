@@ -47,11 +47,11 @@
     <script>
     var maxheight = 0;
 
-    $('.card-panel').each(function () {
+    $('.col').each(function () {
         maxheight = ($(this).height() > maxheight ? $(this).height() : maxheight);
     });
 
-    $('.card-panel').height(maxheight);
+    $('.col').height(maxheight);
     </script>
 </body>
 </html>
