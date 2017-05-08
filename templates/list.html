@@ -4,16 +4,16 @@
 </head>
 <body>
     {% include 'nav.html' %}
-    <div class="container">
+    <div class="container" style="font-family: 'Assistant', sans-serif;">
         {% if tag %}
         <div class="row">
             <h1 class=""><i class="fa fa-tag" aria-hidden="true"></i> {{ tag }} list by {{ user_name }}</h1>
             {% for item in list %}
             <div class="col s12 m6 l4">
                 {% if list[item].resolved_title %}
-                <h5>{{ list[item].resolved_title }}</h5>
+                <h5 style="font-family: 'Archivo Black', sans-serif;">{{ list[item].resolved_title }}</h5>
                 {% else %}
-                <h5 style="word-wrap:break-word;overflow:hidden;">{{ list[item].given_title }}</h5>
+                <h5 style="font-family: 'Archivo Black', sans-serif;word-wrap:break-word;overflow:hidden;">{{ list[item].given_title }}</h5>
                 {% endif %}
                 <div class="divider teal accent-4"></div>
                 <p>
