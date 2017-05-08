@@ -1,9 +1,11 @@
 <!-- Dropdown Structure -->
 <ul id="nav-menu" class="dropdown-content">
     <li><a href={{ url_for('index') }}>HOME</a></li>
+    {% if user_name %}
     <li><a href={{ url_for('account') }}>ACCOUNT</a></li>
-  <!-- <li class="divider"></li> -->
-  <!-- <li><a href="#!">three</a></li> -->
+    <li class="divider"></li>
+    <li><a href={{ url_for('logout') }}>LOGOUT</a></li>
+    {% endif %}
 </ul>
 <nav class="teal accent-4">
     <div class="nav-wrapper container" style="font-family: 'Assistant', sans-serif;">

@@ -1,7 +1,7 @@
 import os
 from pocketapp import get_request_token, get_auth_url, get_access_token
 from pocketapp import get_list
-from flask import Flask, render_template, session, request
+from flask import Flask, render_template, session, request, url_for
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -14,6 +14,8 @@ redirect_uri = app_base_url + redirect
 
 @app.route('/')
 def index():
+    if 'user_name' in session:
+        return redirect(url_for('account'))
     request_token = get_request_token(consumer_key, redirect_uri)
     session['request_token'] = request_token
     auth_url = get_auth_url(request_token, redirect_uri)
@@ -48,7 +50,7 @@ def list():
 @app.route('/logout')
 def logout():
     session.pop('user_name', None)
-    return render_template('index.html')
+    return redirect(url_for('index'))
 
 
 if __name__ == "__main__":
