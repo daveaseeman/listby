@@ -1,15 +1,10 @@
 import requests
-# import webbrowser
-# import time
-# import urllib
-# from uuid import uuid4
 import re
 import json
-from dotenv import load_dotenv, find_dotenv
-load_dotenv(find_dotenv())
 
-# consumer_key = os.environ['POCKET_SECRET']
-# redirect_uri = 'http://daveaseeman.github.io'
+# These are only needed locally:
+# from dotenv import load_dotenv, find_dotenv
+# load_dotenv(find_dotenv())
 
 
 def get_request_token(consumer_key, redirect_uri):
