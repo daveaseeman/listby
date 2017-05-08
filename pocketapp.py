@@ -41,10 +41,6 @@ def get_list(consumer_key, access_token, count, tag):
                                    'count': count,
                                    'tag': tag}
                              )
-    parse = json.loads(response.text)
-    parsed = parse['list']
-    list = "Titles:"
-    for item in parsed:
-        title = parsed[item]['resolved_title'].encode('utf-8')
-        list += "\n" + title
-    return parsed
+    response_data = json.loads(response.text)
+    list = response_data['list']
+    return list
