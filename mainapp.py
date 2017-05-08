@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 consumer_key = os.environ['POCKET_SECRET']
-app_base_url = 'https://listby.herokuapp.com/'
+app_base_url = 'https://listby.herokuapp.com'
 redirect = '/account'
 redirect_uri = app_base_url + redirect
 
