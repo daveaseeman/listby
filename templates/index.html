@@ -1,26 +1,14 @@
 <html>
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    {% include 'head.html' %}
 </head>
 <body>
-    <nav class="teal accent-4">
-       <div class="nav-wrapper container">
-         <a href="#" class="brand-logo">
-             Pocket List
-         </a>
-         <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
-           <li><a href=""></a></li>
-         </ul> -->
-       </div>
-     </nav>
+    {% include 'nav.html' %}
     <div>
         <h1 style="height:10vh;margin-top:45vh;" class="center-align">
             <a href="{{ auth_url }}" class="btn red lighten-1">Log in to Pocket</a>
         </h1>
     </div>
-    <!-- javascript -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://use.fontawesome.com/8f6878caa0.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    {% include 'scripts.html' %}
 </body>
 </html>

@@ -1,18 +1,9 @@
 <html>
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    {% include 'head.html' %}
 </head>
 <body>
-    <nav class="teal accent-4">
-       <div class="nav-wrapper container">
-         <a href="#" class="brand-logo">
-         </a>
-         <ul id="nav-mobile" class="right hide-on-med-and-down">
-           <li><a href={{ url_for('index') }}>Home</a></li>
-           <li><a href={{ url_for('account') }}>New List</a></li>
-         </ul>
-       </div>
-     </nav>
+    {% include 'nav.html' %}
     <div class="container">
         {% if tag %}
         <div class="row">
@@ -40,10 +31,7 @@
             {% endif %}
         </div>
     </div>
-    <!-- javascript -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://use.fontawesome.com/8f6878caa0.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    {% include 'scripts.html' %}
     <script>
     var maxheight = 0;
 
