@@ -1,0 +1,12 @@
+<nav class="teal accent-4">
+   <div class="nav-wrapper container">
+     <a href="#" class="brand-logo">
+         {% if user_name %}
+            Hello, {{ user_name }}
+         {% endif %}
+     </a>
+     <ul id="nav-mobile" class="right hide-on-med-and-down">
+       <li><a href={{ url_for('index') }}>Home</a></li>
+     </ul>
+   </div>
+ </nav>
