@@ -9,10 +9,10 @@
             <h3 class=""><i class="fa fa-tag" aria-hidden="true"></i> {{ tag }} list by {{ user_name }}</h3>
             <div class="row">
                 <div class="input-field col s12 m6">
-                    <a id="open-all" class="btn red lighten-1" href="#open-all"/>OPEN ALL<br /><small>may require popup permission</small></a>
+                    <a id="open-all" class="btn red lighten-1" href="#open-all"/>OPEN ALL<sup><a href="#open-all-notes">*</a></sup></a>
                 </div>
                 <div class="input-field col s12 m6">
-                    <a id="save-all" class="btn red lighten-1" href="#save-all"/>SAVE ALL</a>
+                    <a id="save-all" class="btn red lighten-1" href="#save-all"/>SAVE ALL<sup><a href="#save-all-notes">*</a></sup></a>
                 </div>
             </div>
             <div class="row links">
@@ -39,7 +39,17 @@
         {% endif %}
         </div>
         <a name="save-all"></a>
-        <p>save all doesn't work yet</p>
+        <h6>Notes:</h6>
+        <p class="flow-text">
+            Save All:
+            - save all doesn't work yet</p>
+        <a name="open-all"></a>
+        <p class="flow-text">
+            Open All:
+            - open all may require popup permission from your browser
+            - open all may start downloads if there are urls which resolve to files
+        </p>
+
     </div>
     {% include 'scripts.html' %}
 
