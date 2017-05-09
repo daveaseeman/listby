@@ -9,15 +9,15 @@
             <h3 class=""><i class="fa fa-tag" aria-hidden="true"></i> {{ tag }} list by {{ user_name }}</h3>
             <div class="row">
                 <div class="input-field col s12 m6">
-                    <a id="open-all" class="btn red lighten-1" href="#open-all"/>OPEN ALL<sup><a href="#open-all-notes">*</a></sup></a>
+                    <a id="open-all" class="btn red lighten-1" href="#open-all"/>OPEN ALL<sup><a href="#open-all-notes">note</a></sup></a>
                 </div>
                 <div class="input-field col s12 m6">
-                    <a id="save-all" class="btn red lighten-1" href="#save-all"/>SAVE ALL<sup><a href="#save-all-notes">*</a></sup></a>
+                    <a id="save-all" class="btn red lighten-1" href="#save-all"/>SAVE ALL<sup><a href="#save-all-notes">note</a></sup></a>
                 </div>
             </div>
             <div class="row links">
             {% for item in list %}
-                <div class="col s12 m6 l4">
+                <div class="col s12 m6 l4 same-height">
                     {% if list[item].resolved_title %}
                     <h5 style="font-family: 'Archivo Black', sans-serif;">{{ list[item].resolved_title }}</h5>
                     {% else %}
@@ -38,17 +38,17 @@
         <h1 class="center-align">Problem getting list from tag</h1>
         {% endif %}
         </div>
-        <a name="save-all"></a>
-        <h6>Notes:</h6>
-        <p class="flow-text">
-            Save All:
-            - save all doesn't work yet</p>
-        <a name="open-all"></a>
-        <p class="flow-text">
-            Open All:
-            - open all may require popup permission from your browser
-            - open all may start downloads if there are urls which resolve to files
-        </p>
+        <a name="save-all-notes"></a>
+        <ul>
+            <li>Save All:</li>
+            <li>- save all doesn't work yet</li>
+        </ul>
+        <a name="open-all-notes"></a>
+        <ul>
+            <li>Open All:</li>
+            <li>- open all may require popup permission from your browser</li>
+            <li>- open all may start downloads if there are urls which resolve to files</li>
+        </ul>
 
     </div>
     {% include 'scripts.html' %}
@@ -56,10 +56,10 @@
     <!-- Set Max Height of Grid Elements -->
     <script>
     var maxheight = 0;
-    $('.col').each(function () {
+    $('.same-height').each(function () {
         maxheight = ($(this).height() > maxheight ? $(this).height() : maxheight);
     });
-    $('.col').height(maxheight);
+    $('.same-height').height(maxheight);
     </script>
 
     <!-- Populate Links for Open-All -->
