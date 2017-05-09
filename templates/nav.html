@@ -14,22 +14,11 @@
         </a>
     <ul class="right hide-on-med-and-down">
       <!-- Dropdown Trigger -->
+      {% if user_name %}
       <li><a class="dropdown-button" href="#!" data-activates="nav-menu">MENU <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>
+      {% else %}
+      <li><a href={{ url_for('index') }}>HOME</a></li>
+      {% endif %}
     </ul>
   </div>
 </nav>
-
-<!-- <nav class="teal accent-4">
-    <div class="nav-wrapper container" style="font-family: 'Assistant', sans-serif;">
-        <a href="#" class="brand-logo">
-            {% if user_name %}
-            Hello, {{ user_name }}
-            {% else %}
-            <span style="font-family: 'Righteous', cursive;">listby</span>
-            {% endif %}
-        </a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href={{ url_for('index') }}>Home</a></li>
-        </ul>
-    </div>
-</nav> -->

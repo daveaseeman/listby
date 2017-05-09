@@ -6,40 +6,68 @@
     {% include 'nav.html' %}
     <div class="container" style="font-family: 'Assistant', sans-serif;">
         {% if tag %}
-        <div class="row">
             <h3 class=""><i class="fa fa-tag" aria-hidden="true"></i> {{ tag }} list by {{ user_name }}</h3>
-            {% for item in list %}
-            <div class="col s12 m6 l4">
-                {% if list[item].resolved_title %}
-                <h5 style="font-family: 'Archivo Black', sans-serif;">{{ list[item].resolved_title }}</h5>
-                {% else %}
-                <h5 style="font-family: 'Archivo Black', sans-serif;word-wrap:break-word;overflow:hidden;">{{ list[item].given_title }}</h5>
-                {% endif %}
-                <div class="divider teal accent-4"></div>
-                <p>
-                    {% if list[item.excerpt] %}
-                    No excerpt available.
-                    {% else %}
-                    {{ list[item].excerpt }}
-                    {% endif %}<br />
-                    <a href="{{ list[item].resolved_url}}"><i class="fa fa-external-link-square" aria-hidden="true"></i> read more</a>
-                </p>
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <a id="open-all" class="btn red lighten-1" href="#open-all"/>OPEN ALL</a>
+                </div>
+                <div class="input-field col s12 m6">
+                    <a id="save-all" class="btn red lighten-1" href="#save-all"/>SAVE ALL</a>
+                </div>
             </div>
+            <div class="row" id="list">
+            {% for item in list %}
+                <div class="col s12 m6 l4">
+                    {% if list[item].resolved_title %}
+                    <h5 style="font-family: 'Archivo Black', sans-serif;">{{ list[item].resolved_title }}</h5>
+                    {% else %}
+                    <h5 style="font-family: 'Archivo Black', sans-serif;word-wrap:break-word;overflow:hidden;">{{ list[item].given_title }}</h5>
+                    {% endif %}
+                    <div class="divider teal accent-4"></div>
+                    <p>
+                        {% if list[item.excerpt] %}
+                        No excerpt available.
+                        {% else %}
+                        {{ list[item].excerpt }}
+                        {% endif %}<br />
+                        <a class="article-link" href="{{ list[item].resolved_url}}"><i class="fa fa-external-link-square" aria-hidden="true"></i> read more</a>
+                    </p>
+                </div>
             {% endfor %}
-            {% else %}
-            <h1 class="center-align">Problem getting list from tag</h1>
-            {% endif %}
+        {% else %}
+        <h1 class="center-align">Problem getting list from tag</h1>
+        {% endif %}
         </div>
+        <p id="#save-all">save all doesn't work yet</p>
     </div>
     {% include 'scripts.html' %}
+
+    <!-- Set Max Height of Grid Elements -->
     <script>
     var maxheight = 0;
-
     $('.col').each(function () {
         maxheight = ($(this).height() > maxheight ? $(this).height() : maxheight);
     });
-
     $('.col').height(maxheight);
     </script>
+
+    <!-- Populate Links for Open-All -->
+    <script>
+    $(function() { // On DOM content ready...
+        var hrefs = [];
+
+        $('#list a').each(function() {
+            hrefs.push(this.href); // Store the URLs from the links...
+        });
+
+        $('#open-all').click(function(e) {
+        e.preventDefault();
+           for (var i in urls) {
+                window.open(urls[i]); // ...that opens each stored link in its own window when clicked...
+            }
+        });
+    });
+    </script>
+
 </body>
 </html>
