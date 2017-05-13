@@ -1,6 +1,6 @@
 import os
 from pocketapp import get_request_token, get_auth_url, get_access_token
-from pocketapp import get_list
+from pocketapp import get_list  # , save_list
 from flask import Flask, render_template, session, request, url_for
 
 app = Flask(__name__)
@@ -8,6 +8,7 @@ app.secret_key = os.urandom(24)
 
 consumer_key = os.environ['POCKET_SECRET']
 app_base_url = 'https://listby.herokuapp.com'
+# app_base_url = 'http://0.0.0.0:5000'
 redirect = '/account'
 redirect_uri = app_base_url + redirect
 
@@ -19,7 +20,8 @@ def index():
     request_token = get_request_token(consumer_key, redirect_uri)
     session['request_token'] = request_token
     auth_url = get_auth_url(request_token, redirect_uri)
-    return render_template('index.html', auth_url=auth_url)
+    return render_template('index.html',
+                           auth_url=auth_url)
 
 
 @app.route(redirect)
@@ -33,7 +35,8 @@ def account():
     user_name = user_info['user_name']
     session['access_token'] = access_token
     session['user_name'] = user_name
-    return render_template('account.html', user_name=user_name)
+    return render_template('account.html',
+                           user_name=user_name)
 
 
 @app.route('/list')
@@ -44,13 +47,32 @@ def list():
     count = request.values.get('count')
     state = request.values.get('state')
     list = get_list(consumer_key, access_token, count, tag, state)
-    return render_template('list.html', tag=tag, list=list, user_name=user_name)
+    session['list'] = list
+    return render_template('list.html',
+                           tag=tag,
+                           list=list,
+                           user_name=user_name)
 
 
-@app.route('/logout')
-def logout():
-    session.pop('user_name', None)
-    return redirect(url_for('index'))
+# @app.route('/save')
+# def save():
+#     # if 'user_name' not in session:
+#     #     redirect('/')
+#     # else:
+#     access_token = session['access_token']
+#     user_name = session['user_name']
+#     list = session['list']
+#     response = save_list(consumer_key, access_token, list)
+#     return render_template('list.html',
+#                            response=response,
+#                            list=list,
+#                            user_name=user_name)
+
+
+# @app.route('/logout')
+# def logout():
+#     session.pop('user_name', None)
+#     return redirect(url_for('index'))
 
 
 if __name__ == "__main__":

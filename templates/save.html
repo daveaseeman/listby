@@ -1,0 +1,20 @@
+<html>
+<head>
+    {% include 'head.html' %}
+</head>
+<body>
+    {% include 'nav.html' %}
+    <div class="container" style="font-family: 'Assistant', sans-serif;">
+        <h3 class=""><i class="fa fa-tag" aria-hidden="true"></i> Saved for {{ user_name }}</h3>
+        <div class="row">
+            <div class="col s12">
+                {{ response }}
+            </div>
+            <div class="col s12">
+                {{ list }}
+            </div>
+        </div>
+    </div>
+    {% include 'scripts.html' %}
+</body>
+</html>

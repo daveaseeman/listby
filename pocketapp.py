@@ -45,3 +45,20 @@ def get_list(consumer_key, access_token, count, tag, state):
     response_data = json.loads(response.text)
     list = response_data['list']
     return list
+
+
+def save_list(consumer_key, access_token, list):
+    add_url = "https://getpocket.com/v3/add"
+    save_responses = []
+    print(list)
+    for item in list:
+        print(item)
+        url = item['resolved_url']
+        print(url)
+        save_item = requests.post(add_url,
+                                  data={'consumer_key': consumer_key,
+                                        'access_token': access_token,
+                                        'url': url}
+                                  )
+        save_responses += save_item
+    return save_responses
