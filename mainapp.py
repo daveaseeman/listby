@@ -1,6 +1,6 @@
 import os
 from pocketapp import get_request_token, get_auth_url, get_access_token
-from pocketapp import get_list  # , save_list
+from pocketapp import get_list, save_list
 from flask import Flask, render_template, session, request, url_for
 
 app = Flask(__name__)
@@ -54,25 +54,25 @@ def list():
                            user_name=user_name)
 
 
-# @app.route('/save')
-# def save():
-#     # if 'user_name' not in session:
-#     #     redirect('/')
-#     # else:
-#     access_token = session['access_token']
-#     user_name = session['user_name']
-#     list = session['list']
-#     response = save_list(consumer_key, access_token, list)
-#     return render_template('list.html',
-#                            response=response,
-#                            list=list,
-#                            user_name=user_name)
+@app.route('/save')
+def save():
+    # if 'user_name' not in session:
+    #     redirect('/')
+    # else:
+    access_token = session['access_token']
+    user_name = session['user_name']
+    list = session['list']
+    response = save_list(consumer_key, access_token, list)
+    return render_template('list.html',
+                           response=response,
+                           list=list,
+                           user_name=user_name)
 
 
-# @app.route('/logout')
-# def logout():
-#     session.pop('user_name', None)
-#     return redirect(url_for('index'))
+@app.route('/logout')
+def logout():
+    session.pop('user_name', None)
+    return redirect(url_for('index'))
 
 
 if __name__ == "__main__":
